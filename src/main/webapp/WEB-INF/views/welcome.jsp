@@ -14,12 +14,6 @@
         <div class="container">
             <h1> ${greeting} </h1>
             <p> ${tagline} </p>
-            <p>
-                <security:authorize access="isAuthenticated()">
-                Welcome
-                    <security:authentication property="principal.username"/>
-                </security:authorize>
-
         </div>
         <%@include file="./includes/header.jsp"%>
 

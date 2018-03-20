@@ -10,8 +10,9 @@
     <div class="jumbotron">
         <div class="container">
             <h1>Movies</h1>
-            <p>Add New Movie<p>
+            <p>Add New Movie</p>
         </div>
+        <%@include file="../includes/header.jsp"%>
     </div>
 </section>
 <section class="container">

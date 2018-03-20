@@ -9,17 +9,12 @@
 <section>
     <div class="jumbotron">
         <div class="container">
-            <h1>Movie</h1>
+            <h1>Movies</h1>
             <p>View Movie</p>
         </div>
-
-        <div class="pull-left"> <h3>${SpecialBlurb}</h3> </div>
-        <a href="<spring:url value="/movies/add" />" class="btn btn-danger btn-mini pull-right">Add a new movie</a>
-        <br>
-        <%@include file="../includes/authentication.jsp" %>
+        <%@include file="../includes/header.jsp"%>
     </div>
 </section>
-
 <section class="container">
     <div class="row">
         <div class="col-sm-6 col-md-3" style="padding-bottom: 15px">

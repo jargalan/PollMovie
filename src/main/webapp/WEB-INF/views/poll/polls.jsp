@@ -11,24 +11,19 @@
         <div class="container">
             <h1>Polls</h1>
             <p>Poll List</p>
-
-            <div class="pull-left"><%@include file="../includes/authentication.jsp" %></div>
         </div>
-        <a href="<spring:url value="/polls/add" />" class="btn btn-danger btn-mini pull-right">Add a new poll</a>
-
         <%@include file="../includes/header.jsp"%>
     </div>
 </section>
-
 <section class="container">
     <div class="row">
         <c:forEach items="${polls}" var="poll">
-            <div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
+            <div class="col-md-12" style="padding-bottom: 15px">
                 <div class="thumbnail">
                     <div class="caption">
                         <h4>Name - ${poll.name}</h4>
                         <h4>Name -  ${poll.name}
-                            <a href="<spring:url value="/polls/${poll.id}" />" class="btn btn-primary  btn-mini  ">View</a>
+                            <a href="<spring:url value="/polls/${poll.id}" />" class="btn btn-primary btn-mini">View</a>
                         </h4>
                     </div>
                 </div>

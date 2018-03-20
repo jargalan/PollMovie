@@ -53,6 +53,7 @@ public class PollController {
         if (poll.getUsers().contains(user)) {
             hasVoted = true;
         }
+        System.out.println("------ hasVoted -- " + hasVoted);
         model.addAttribute("poll", poll);
         model.addAttribute("hasVoted", hasVoted);
         return "poll/poll";

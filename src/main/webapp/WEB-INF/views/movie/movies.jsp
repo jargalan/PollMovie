@@ -11,15 +11,10 @@
         <div class="container">
             <h1>Movies</h1>
             <p>Movie List</p>
-
-            <div class="pull-left"> <h3>${SpecialBlurb}</h3> </div>
         </div>
-        <a href="<spring:url value="/movies/add" />" class="btn btn-danger btn-mini pull-right">Add a new movie</a>
-        <br>
-        <%@include file="../includes/authentication.jsp" %>
+        <%@include file="../includes/header.jsp"%>
     </div>
 </section>
-
 <section class="container">
     <div class="row">
         <c:forEach items="${movies}" var="movie">

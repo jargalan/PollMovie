@@ -9,9 +9,10 @@
 <section>
     <div class="jumbotron">
         <div class="container">
-            <h1>Polls</h1>
-            <p>Add New Poll<p>
+            <h1>Poll</h1>
+            <p>Add New Poll</p>
         </div>
+        <%@include file="../includes/header.jsp"%>
     </div>
 </section>
 <section class="container">

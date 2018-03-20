@@ -10,16 +10,11 @@
     <div class="jumbotron">
         <div class="container">
             <h1>Poll</h1>
-            <p>Poll from the book list</p>
+            <p>Poll of movie list</p>
         </div>
-
-        <div class="pull-left"> <h3>${SpecialBlurb}</h3> </div>
-        <a href="<spring:url value="/polls/add" />" class="btn btn-danger btn-mini pull-right">Add a new one</a>
-        <br>
-        <%@include file="../includes/authentication.jsp" %>
+        <%@include file="../includes/header.jsp"%>
     </div>
 </section>
-
 <section class="container">
     <div class="row">
         <div class="col-md-12" style="padding-bottom: 15px">

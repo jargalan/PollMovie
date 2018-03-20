@@ -67,6 +67,7 @@ public class Movie {
 
 	@Override
 	public int hashCode() {
+		if(id == null) return 0;
 		return new Long(id).hashCode();
 	}
 

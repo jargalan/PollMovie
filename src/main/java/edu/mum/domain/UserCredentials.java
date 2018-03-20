@@ -69,6 +69,21 @@ public class UserCredentials {
 	public void setMember(Member member) {
 		this.member = member;
 	}
- 
+
+    @Override
+    public int hashCode() {
+        return this.getUsername().hashCode();
+    }
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (! (obj instanceof UserCredentials)) {
+			return false;
+		}
+		return this.username == ((UserCredentials)obj).getUsername();
+	}
  	
 }
