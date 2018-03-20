@@ -31,4 +31,6 @@ public class PollServiceImpl implements PollService {
     public void delete(Long id) {
         pollDao.delete(id);
     }
+
+    public Poll update(Poll poll) { return pollDao.update(poll); }
 }

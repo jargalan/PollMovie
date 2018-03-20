@@ -44,8 +44,17 @@ public class PollController {
 
     @RequestMapping("/{id}")
     public String getPoll(@PathVariable("id") Long id, Model model) {
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserCredentials user = userCredentialsService.findByUserName(auth.getName());
         Poll poll = pollService.findOne(id);
+        boolean hasVoted = false;
+
+        if (poll.getUsers().contains(user)) {
+            hasVoted = true;
+        }
         model.addAttribute("poll", poll);
+        model.addAttribute("hasVoted", hasVoted);
         return "poll/poll";
     }
 
@@ -79,17 +88,15 @@ public class PollController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         UserCredentials user = userCredentialsService.findByUserName(auth.getName());
 
-//        System.out.println("======== " + auth.getName() + "-----------" + auth.getCredentials());
         Poll poll = pollService.findOne(id);
 
         if (!poll.getUsers().contains(user)) {
             poll.addUser(user);
-//            Movie movie = movieService.findOne(movieId);
             movieService.voteMovie(movieId);
-            pollService.save(poll);
+            pollService.update(poll);
         }
 
-        return "redirect:/movies";
+        return "redirect:/polls";
 
     }
 

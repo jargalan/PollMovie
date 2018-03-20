@@ -17,42 +17,42 @@ import edu.mum.service.MemberService;
 @Controller
 @RequestMapping({"/members"})
 public class MemberController {
-	
-	@Autowired
-	private MemberService  memberService;
 
-	@RequestMapping
-	public String listMembers(Model model) {
-		model.addAttribute("members", memberService.findAll());
-		return "members";
-	}
-	
-  	@RequestMapping("/{id}")
-	public String getMemberById(@PathVariable("id") Long id,Model model) {
-		Member member = memberService.findOne(id);
-		model.addAttribute("member", member);
+    @Autowired
+    private MemberService memberService;
 
- 		return "member";
-	}
+    @RequestMapping
+    public String listMembers(Model model) {
+        model.addAttribute("members", memberService.findAll());
+        return "member/members";
+    }
 
-	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public String getAddNewMemberForm(@ModelAttribute("newMember") Member newMember) {
-	   return "addMember";
-	}
-	   
-	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String processAddNewMemberForm(@ModelAttribute("newMember") @Valid Member memberToBeAdded, BindingResult result) {
- 
-		if(result.hasErrors()) {
-			return "addMember";
-		}
+    @RequestMapping("/{id}")
+    public String getMemberById(@PathVariable("id") Long id, Model model) {
+        Member member = memberService.findOne(id);
+        model.addAttribute("member", member);
 
-			 //  Error caught by ControllerAdvice IF no authorization...
-			memberService.saveFull(memberToBeAdded);
+        return "member/member";
+    }
 
-	   	return "redirect:/members";
- 
-	}
-	
- 
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String getAddNewMemberForm(@ModelAttribute("newMember") Member newMember) {
+        return "member/addMember";
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String processAddNewMemberForm(@ModelAttribute("newMember") @Valid Member memberToBeAdded, BindingResult result) {
+
+        if (result.hasErrors()) {
+            return "member/addMember";
+        }
+
+        //  Error caught by ControllerAdvice IF no authorization...
+        memberService.saveFull(memberToBeAdded);
+
+        return "redirect:/members";
+
+    }
+
+
 }

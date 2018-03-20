@@ -2,15 +2,7 @@ package edu.mum.dao.impl;
 
 import edu.mum.dao.MovieDao;
 import edu.mum.domain.Movie;
-import edu.mum.domain.Product;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Order;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 
 @Repository

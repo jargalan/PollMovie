@@ -16,4 +16,6 @@ public interface PollService {
 
     public void delete(Long id);
 
+    public Poll update(Poll poll);
+
 }

@@ -16,8 +16,8 @@
 				<h1>One of our People</h1>
 				<p>An important contributor  to our Community!!!</p>
 			</div>
-   			
- 							<div class="pull-left"> <h3>${SpecialBlurb}</h3> </div>
+
+			<div class="pull-left"> <h3>${SpecialBlurb}</h3> </div>
  				<a href="<spring:url value="/members/add" />" class="btn btn-danger btn-mini pull-right">Add a new one</a>	
  				<br>
  				  <security:authorize access="isAuthenticated()">

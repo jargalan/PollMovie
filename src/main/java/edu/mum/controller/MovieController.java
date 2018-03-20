@@ -51,23 +51,16 @@ public class MovieController {
         return "/movie/editMovies";
     }
 
-
-
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String saveMovie(@Valid @ModelAttribute("newMovie") Movie movie,
                             BindingResult result) {
 
         if (result.hasErrors()) {
             return "/movie/addMovie";
-        } else {
-
-//            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//            String name = auth.getName();
-//            movie.setAddedBy(name);
-            movieService.save(movie);
-
-            return "redirect:/movies";
         }
+
+        movieService.save(movie);
+        return "redirect:/movies";
     }
 
     @RequestMapping("/delete/{id}")

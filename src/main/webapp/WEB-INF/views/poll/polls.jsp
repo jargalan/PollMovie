@@ -12,11 +12,11 @@
             <h1>Polls</h1>
             <p>Poll List</p>
 
-            <div class="pull-left"> <h3>${SpecialBlurb}</h3> </div>
+            <div class="pull-left"><%@include file="../includes/authentication.jsp" %></div>
         </div>
         <a href="<spring:url value="/polls/add" />" class="btn btn-danger btn-mini pull-right">Add a new poll</a>
-        <br>
-        <%@include file="../includes/authentication.jsp" %>
+
+        <%@include file="../includes/header.jsp"%>
     </div>
 </section>
 
