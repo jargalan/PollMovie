@@ -79,7 +79,7 @@ public class PollController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         UserCredentials user = userCredentialsService.findByUserName(auth.getName());
 
-        System.out.println("======== " + auth.getName() + "-----------" + auth.getCredentials());
+//        System.out.println("======== " + auth.getName() + "-----------" + auth.getCredentials());
         Poll poll = pollService.findOne(id);
 
         if (!poll.getUsers().contains(user)) {
