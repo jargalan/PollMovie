@@ -21,7 +21,8 @@
     <%--<a href="<spring:url value='/members' />" class="btn btn-default">--%>
         <%--<span class="glyphicon-hand-left glyphicon"></span> See the user list--%>
     <%--</a>--%>
-    <security:authorize access="isAuthenticated()">
-        <a href="<spring:url value='/logout' />" class="btn btn-default"> Logout</a>
-    </security:authorize>
+    <%--<security:authorize access="isAuthenticated()">--%>
+        <%--<a href="<spring:url value='/logout' />" class="btn btn-default"> Logout</a>--%>
+    <%--</security:authorize>--%>
+    <%@include file="authentication.jsp"%>
 </div>
