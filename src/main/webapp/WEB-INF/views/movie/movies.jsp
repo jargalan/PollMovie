@@ -18,13 +18,12 @@
 <section class="container">
     <div class="row">
         <c:forEach items="${movies}" var="movie">
-            <div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
+            <div class="col-md-6" style="padding-bottom: 15px">
                 <div class="thumbnail">
                     <div class="caption">
-                        <h4>Title - ${movie.title}</h4>
-                        <h4>Year - ${movie.year}
-                            <a href="<spring:url value="/movies/${movie.id}" />" class="btn btn-primary  btn-mini  ">View</a>
-                        </h4>
+                        <h4>${movie.title} (${movie.year})</h4>
+                        <p>${movie.actors}</p>
+                        <a href="<spring:url value="/movies/${movie.id}" />" class="btn btn-primary  btn-mini  ">View</a>
                     </div>
                 </div>
             </div>

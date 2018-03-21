@@ -20,11 +20,11 @@
         <div class="col-md-12" style="padding-bottom: 15px">
             <div class="thumbnail">
                 <div class="caption">
-                    <h3>Name - ${poll.name}</h3>
-                    <p>Name -         ${poll.name}</p>
-                    <table class="table table-striped table-bordered table-condensed text-center">
+                    <h3>Poll - ${poll.name}</h3>
+                    <p>User can vote for the movie only once</p>
+                    <table class="table table-striped table-bordered table-condensed- text-center">
                         <thead>
-                        <tr class="success">
+                        <tr style="background:#428bca;color:white">
                             <th width="2%">Rank</th>
                             <th width="2%">Votes</th>
                             <th width="30$">Title</th>

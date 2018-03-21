@@ -17,14 +17,12 @@
 </section>
 <section class="container">
     <div class="row">
-        <c:forEach items="${polls}" var="poll">
+        <c:forEach items="${polls}" var="poll" varStatus="loopCounter">
             <div class="col-md-12" style="padding-bottom: 15px">
                 <div class="thumbnail">
                     <div class="caption">
-                        <h4>Name - ${poll.name}</h4>
-                        <h4>Name -  ${poll.name}
-                            <a href="<spring:url value="/polls/${poll.id}" />" class="btn btn-primary btn-mini">View</a>
-                        </h4>
+                        <h4><c:out value="${loopCounter.count}" />. ${poll.name}</h4>
+                        <a href="<spring:url value="/polls/${poll.id}" />" class="btn btn-primary btn-mini">View</a>
                     </div>
                 </div>
             </div>

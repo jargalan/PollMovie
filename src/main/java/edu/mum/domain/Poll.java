@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+//@NamedQuery(name = "Poll.findAll", query="select u from Poll u order by u.id DESC")
 public class Poll implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -70,6 +71,7 @@ public class Poll implements Serializable {
     @OneToMany(mappedBy = "poll", cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
             orphanRemoval = true, fetch = FetchType.EAGER)
     @Fetch(FetchMode.SUBSELECT)
+    @OrderBy("votes DESC")
     private Set<PollMovie> pollMovies = new HashSet<PollMovie>();
 
     public void addPollMovie(PollMovie pollMovie) {

@@ -1,7 +1,4 @@
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
- 
+<%@include file="../includes/taglibs.jsp" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -22,19 +19,18 @@
 
 <section class="container">
 	<div class="row">
-			<div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
-				<div class="thumbnail">
-					<div class="caption">
-						<h3>First Name - ${member.firstName}</h3>
-						<h3>Last Name -  ${member.lastName}</h3>
-						<p>Age -         ${member.age}</p>
-						<p>Title -       ${member.title} </p>
-						<p>NUMBER -      ${member.memberNumber} </p>
-
-					</div>
-				</div>
-			</div>
-
+        <div class="col-md-12" style="padding-bottom: 15px">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h3>Username: ${member.userCredentials.username}</h3>
+                    <p><strong>First Name:</strong> ${member.firstName}</p>
+                    <p><strong>Last Name:</strong> ${member.lastName}</p>
+                    <p><strong>Age:</strong> ${member.age}</p>
+                    <p><strong>Title:</strong> ${member.title} </p>
+                    <p><strong>Member Number:</strong> ${member.memberNumber} </p>
+                </div>
+            </div>
+        </div>
 	</div>
 </section>
 </body>

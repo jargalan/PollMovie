@@ -24,7 +24,7 @@
             <div class="form-group">
                 <label class="control-label col-lg-2 col-lg-2" for="name">Poll Name</label>
                 <div class="col-lg-10">
-                    <form:input id="name" path="name" type="text" class="form:input-large"/>
+                    <form:input id="name" path="name" type="text" class="form:input-large" style="width:80%"/>
                     <form:errors path="name" cssClass="text-danger"/>
                 </div>
             </div>
@@ -32,7 +32,8 @@
             <div class="form-group">
                 <label class="control-label col-lg-2 col-lg-2" for="movies">Movies</label>
                 <div class="col-lg-10">
-                    <form:select path="movies" multiple="true" items="${movieList}" itemLabel="title" itemValue="id"/>
+                    <form:select path="movies" multiple="true" items="${movieList}" itemLabel="title" itemValue="id"
+                                 style="width:80%; min-height:250px;"/>
                     <form:errors path="movies" cssClass="text-danger"/>
                 </div>
             </div>

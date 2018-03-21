@@ -10,4 +10,8 @@ run populate.sql
 2.Login (username / password)
 
  admin/admin
- guest/guest
+ admin2/admin
+ user1/guest
+ user2/guest
+ user3/guest
+ user4/guest

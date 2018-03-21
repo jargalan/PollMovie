@@ -24,7 +24,7 @@
             <div class="form-group">
                 <label class="control-label col-lg-2 col-lg-2" for="title">Title</label>
                 <div class="col-lg-10">
-                    <form:input id="title" path="title" type="text" class="form:input-large"/>
+                    <form:input id="title" path="title" type="text" class="form:input-large" style="min-width:60%"/>
                     <form:errors path="title" cssClass="text-danger"/>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                         </form:option>
                         <form:option value="Thriller">Thriller
                         </form:option>
-                        <form:option value="War Movie">War
+                        <form:option value="War">War
                         </form:option>
                         <form:option value="Western">Western
                         </form:option>
@@ -76,7 +76,7 @@
             <div class="form-group">
                 <label class="control-label col-lg-2 col-lg-2" for="actors">Actors</label>
                 <div class="col-lg-10">
-                    <form:input id="actors" path="actors" type="text" class="form:input-large"/>
+                    <form:input id="actors" path="actors" type="text" class="form:input-large" style="min-width:60%"/>
                     <form:errors path="actors" cssClass="text-danger"/>
                 </div>
             </div>
@@ -84,8 +84,16 @@
             <div class="form-group">
                 <label class="control-label col-lg-2 col-lg-2" for="imdb">IMDB</label>
                 <div class="col-lg-10">
-                    <form:input id="imdb" path="imdb" type="text" class="form:input-large"/>
+                    <form:input id="imdb" path="imdb" type="text" class="form:input-large" style="width:80%"/>
                     <form:errors path="imdb" cssClass="text-danger"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-lg-2 col-lg-2" for="movie_index">Index</label>
+                <div class="col-lg-10">
+                    <form:input id="movie_index" path="movie_index" type="text" class="form:input-large"/>
+                    <form:errors path="movie_index" cssClass="text-danger"/>
                 </div>
             </div>
 

@@ -10,19 +10,19 @@
     </security:authorize>
 
     <security:authorize access="isAuthenticated()">
+        <security:authorize access="hasRole('ROLE_ADMIN')">
         <a href="<spring:url value="/members/add" />" class="btn btn-default pull-right">Add Member</a>
+        </security:authorize>
         <a href="<spring:url value="/members" />" class="btn btn-default pull-right">Member List</a>
+        <security:authorize access="hasRole('ROLE_ADMIN')">
         <a href="<spring:url value="/polls/add" />" class="btn btn-default pull-right">Add Poll</a>
+        </security:authorize>
         <a href="<spring:url value="/polls" />" class="btn btn-default pull-right">Poll List</a>
+        <security:authorize access="hasRole('ROLE_ADMIN')">
         <a href="<spring:url value="/movies/add" />" class="btn btn-default pull-right">Add Movie</a>
+        </security:authorize>
         <a href="<spring:url value="/movies" />" class="btn btn-default pull-right">Movie List</a>
     </security:authorize>
 
-    <%--<a href="<spring:url value='/members' />" class="btn btn-default">--%>
-        <%--<span class="glyphicon-hand-left glyphicon"></span> See the user list--%>
-    <%--</a>--%>
-    <%--<security:authorize access="isAuthenticated()">--%>
-        <%--<a href="<spring:url value='/logout' />" class="btn btn-default"> Logout</a>--%>
-    <%--</security:authorize>--%>
     <%@include file="authentication.jsp"%>
 </div>
