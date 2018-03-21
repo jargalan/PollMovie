@@ -83,7 +83,7 @@ public class UserCredentials {
 		if (! (obj instanceof UserCredentials)) {
 			return false;
 		}
-		return this.username == ((UserCredentials)obj).getUsername();
+		return this.username.equals(((UserCredentials)obj).getUsername());
 	}
  	
 }

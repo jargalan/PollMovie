@@ -50,7 +50,11 @@ public class PollController {
         Poll poll = pollService.findOne(id);
         boolean hasVoted = false;
 
-        if (poll.getUsers().contains(user)) {
+        System.out.println("------ username -- " + user.getUsername());
+        System.out.println(poll.getUsers());
+
+        UserCredentials user1 = poll.getUsers().stream().filter(u -> u.getUsername().equals(u.getUsername())).findFirst().orElse(null); //{
+        if (user1 != null) {
             hasVoted = true;
         }
         System.out.println("------ hasVoted -- " + hasVoted);
