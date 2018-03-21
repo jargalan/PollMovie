@@ -36,25 +36,30 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach items="${poll.movies}" var="movie" varStatus="loopCounter">
+                        <c:forEach items="${poll.pollMovies}" var="pollMovie" varStatus="loopCounter">
                             <tr>
                                 <td><strong><c:out value="${loopCounter.count}" /></strong></td>
-                                <td><font color="red"><c:out value="${movie.votes}" /></font></td>
-                                <td><c:out value="${movie.title}" /></td>
-                                <td><c:out value="${movie.genre}" /></td>
-                                <td><c:out value="${movie.year}" /></td>
-                                <td><c:out value="${movie.actors}" /></td>
-                                <td><c:if test="${movie.imdb != ''}">
-                                    <a href="${movie.imdb}" target="blank"> <i	class="fa fa-external-link-square"> IMDb</i></a>
-                                </c:if></td>
-                                <td><form:form id="vote" action="/polls/vote/${poll.id}" method="post">
-                                    <button name="movieId" value="${movie.id}"
-                                            class="btn btn-primary"
+                                <td><font color="red"><c:out value="${pollMovie.votes}" /></font></td>
+                                <td><c:out value="${pollMovie.movie.title}" /></td>
+                                <td><c:out value="${pollMovie.movie.genre}" /></td>
+                                <td><c:out value="${pollMovie.movie.year}" /></td>
+                                <td><c:out value="${pollMovie.movie.actors}" /></td>
+                                <td>
+                                    <c:if test="${pollMovie.movie.imdb != ''}">
+                                        <a href="${pollMovie.movie.imdb}" target="blank">
+                                            <i class="fa fa-external-link-square"> IMDb</i>
+                                        </a>
+                                    </c:if>
+                                </td>
+                                <td>
+                                    <form:form id="vote" action="/polls/vote/${poll.id}" method="post">
+                                    <button name="movieId" value="${pollMovie.movie.id}"
                                             <c:out value="${hasVoted == true ? 'disabled' : ''}"/>
-                                            type="submit">
+                                            class="btn btn-primary" type="submit">
                                         <i class="fa fa-thumbs-up"></i>Vote
                                     </button>
-                                </form:form></td>
+                                    </form:form>
+                                </td>
                             </tr>
                         </c:forEach>
                         </tbody>

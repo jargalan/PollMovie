@@ -6,22 +6,21 @@ import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
+import java.io.Serializable;
 import java.sql.Date;
 
 
 @Entity
 @Table(name = "movie")
-public class Movie {
+public class Movie implements Serializable {
 	
 	private Long id;
-	private int votes;
+//	private int votes;
 	private String title;
 	private String genre;
 	private String year;
 	private String actors;
 	private String imdb;
-//	private String addedBy;
-//	private Date publishedOn;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,10 +28,10 @@ public class Movie {
 		return id;
 	}
 	
-	@Column
-	public int getVotes() {		
-		return votes;		
-	}
+//	@Column
+//	public int getVotes() {
+//		return votes;
+//	}
 	@NotEmpty
 	@Pattern(regexp="^[A-Za-z0-9' _-]*$")
 	@Column(nullable=false)
@@ -82,23 +81,13 @@ public class Movie {
 		return this.id == ((Movie)obj).getId();
 	}
 
-//	@Column(nullable=false)
-//	public String getAddedBy() {
-//		return addedBy;
-//	}
-//
-//	@Column(name = "published_date")
-//	public Date getPublishedOn() {
-//		return publishedOn;
-//	}
-	
 	public void setId(Long id) {
 		this.id = id;
 	}
 	
-	public void setVotes(int votes) {
-		this.votes = votes;
-	}
+//	public void setVotes(int votes) {
+//		this.votes = votes;
+//	}
 
 	public void setTitle(String title) {
 		this.title = title;
@@ -120,11 +109,5 @@ public class Movie {
 		this.imdb = imdb;
 	}
 
-//	public void setAddedBy(String addedBy) {
-//		this.addedBy = addedBy;
-//	}
-//
-//	public void setPublishedOn(Date publishedOn) {
-//		this.publishedOn = publishedOn;
-//	}
+
 }

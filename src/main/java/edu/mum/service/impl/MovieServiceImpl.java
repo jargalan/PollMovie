@@ -34,9 +34,9 @@ public class MovieServiceImpl implements MovieService {
         movieDao.delete(id);
     }
 
-	public void voteMovie(Long id) {
-		movieDao.voteMovie(id);
-
-	}
+//	public void voteMovie(Long id) {
+//		movieDao.voteMovie(id);
+//
+//	}
 
 }

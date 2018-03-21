@@ -18,4 +18,6 @@ public interface PollService {
 
     public Poll update(Poll poll);
 
+    public void voteMovie(Long id, Long movieId);
+
 }

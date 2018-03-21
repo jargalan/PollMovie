@@ -15,6 +15,6 @@ public interface MovieService {
 
 	public void delete(Long id);
 
-	public void voteMovie(Long id);
+//	public void voteMovie(Long id);
 
 }

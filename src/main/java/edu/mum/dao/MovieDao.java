@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface MovieDao extends GenericDao<Movie> {
 
-    public void voteMovie(Long movieId);
+//    public void voteMovie(Long movieId);
 }

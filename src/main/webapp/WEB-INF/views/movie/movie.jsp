@@ -23,7 +23,7 @@
                     <h3>Title - ${movie.title}</h3>
                     <h3>Year -  ${movie.year}</h3>
                     <p>Genre -         ${movie.genre}</p>
-                    <p>Votes -         ${movie.votes}</p>
+                    <%--<p>Votes -         ${movie.votes}</p>--%>
                     <p>Actors -         ${movie.actors}</p>
                     <p>IMDB -         ${movie.imdb}</p>
                 </div>

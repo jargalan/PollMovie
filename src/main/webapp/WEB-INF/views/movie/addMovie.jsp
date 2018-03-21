@@ -38,6 +38,8 @@
                         </form:option>
                         <form:option value="Animated">Animated
                         </form:option>
+                        <form:option value="Adventure">Adventure
+                        </form:option>
                         <form:option value="Comedy">Comedy
                         </form:option>
                         <form:option value="Crime">Crime
