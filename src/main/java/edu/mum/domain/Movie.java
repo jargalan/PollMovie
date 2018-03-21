@@ -21,6 +21,10 @@ public class Movie implements Serializable {
 	private String year;
 	private String actors;
 	private String imdb;
+//	private String addedBy;
+//	private Date publishedOn;
+
+	private String movie_index;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -57,7 +61,12 @@ public class Movie implements Serializable {
 	public String getActors() {
 		return actors;
 	}
-	
+	@Column(nullable=false)
+	public String getMovie_index() {
+		return movie_index;
+	}
+
+
 	@URL(protocol="http", host="www.imdb.com")
 	@Column
 	public String getImdb() {
@@ -81,6 +90,16 @@ public class Movie implements Serializable {
 		return this.id == ((Movie)obj).getId();
 	}
 
+//	@Column(nullable=false)
+//	public String getAddedBy() {
+//		return addedBy;
+//	}
+//
+//	@Column(name = "published_date")
+//	public Date getPublishedOn() {
+//		return publishedOn;
+//	}
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -110,4 +129,17 @@ public class Movie implements Serializable {
 	}
 
 
+	public void setMovie_index(String movie_index) {
+		this.movie_index = movie_index;
+	}
+
+
+
+//	public void setAddedBy(String addedBy) {
+//		this.addedBy = addedBy;
+//	}
+//
+//	public void setPublishedOn(Date publishedOn) {
+//		this.publishedOn = publishedOn;
+//	}
 }

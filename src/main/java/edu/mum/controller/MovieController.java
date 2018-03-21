@@ -3,6 +3,8 @@ package edu.mum.controller;
 import edu.mum.domain.Movie;
 import edu.mum.domain.Poll;
 import edu.mum.domain.UserCredentials;
+import edu.mum.domain.helper.MovieExtra;
+import edu.mum.rest.service.MovieExtraService;
 import edu.mum.service.MovieService;
 import edu.mum.service.UserCredentialsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -22,6 +26,8 @@ public class MovieController {
 
     @Autowired
     private MovieService movieService;
+    @Autowired
+    private MovieExtraService movieExtraService;
 
     @RequestMapping
     public String listMovies(Model model) {
@@ -32,7 +38,10 @@ public class MovieController {
     @RequestMapping("/{id}")
     public String getMovie(@PathVariable Long id, Model model) {
         Movie movie = movieService.findOne(id);
+        List<MovieExtra> movieExtraList = movieExtraService.readByIndex(movie.getMovie_index());
+        
         model.addAttribute("movie", movie);
+        model.addAttribute("movieExtraList", movieExtraList);
         model.addAttribute("edit", "editMovie");
         return "/movie/movie";
     }
