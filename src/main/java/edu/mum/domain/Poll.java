@@ -2,6 +2,7 @@ package edu.mum.domain;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,9 +12,13 @@ import java.util.Set;
 @Entity
 //@NamedQuery(name = "Poll.findAll", query="select u from Poll u order by u.id DESC")
 public class Poll implements Serializable {
+
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
+
+    @NotEmpty
+    @Column
     private String name;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -25,6 +30,15 @@ public class Poll implements Serializable {
 //    @JoinTable( name="Poll_Movie", joinColumns={@JoinColumn(name="Poll_ID")},
 //            inverseJoinColumns={ @JoinColumn(name="Movie_ID")} )
 //    Set<Movie> movies = new HashSet<Movie>();
+
+    @OneToMany(mappedBy = "poll", cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            orphanRemoval = true, fetch = FetchType.EAGER)
+    @Fetch(FetchMode.SUBSELECT)
+    @OrderBy("votes DESC")
+    private Set<PollMovie> pollMovies = new HashSet<PollMovie>();
+
+    @Transient
+    Set<Movie> movies = new HashSet<Movie>();
 
     public Long getId() {
         return id;
@@ -68,12 +82,6 @@ public class Poll implements Serializable {
                 .findFirst().orElse(null);
     }
 
-    @OneToMany(mappedBy = "poll", cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
-            orphanRemoval = true, fetch = FetchType.EAGER)
-    @Fetch(FetchMode.SUBSELECT)
-    @OrderBy("votes DESC")
-    private Set<PollMovie> pollMovies = new HashSet<PollMovie>();
-
     public void addPollMovie(PollMovie pollMovie) {
         this.pollMovies.add(pollMovie);
     }
@@ -86,6 +94,4 @@ public class Poll implements Serializable {
         this.pollMovies = pollMovies;
     }
 
-    @Transient
-    Set<Movie> movies = new HashSet<Movie>();
 }

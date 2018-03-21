@@ -13,87 +13,70 @@ import java.sql.Date;
 @Entity
 @Table(name = "movie")
 public class Movie implements Serializable {
-	
-	private Long id;
-//	private int votes;
-	private String title;
-	private String genre;
-	private String year;
-	private String actors;
-	private String imdb;
-	private String movie_index;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+
+    @NotEmpty
+    @Pattern(regexp = "^[A-Za-z0-9' _-]*$", message = "{Pattern.title}")
+    @Column(nullable=false)
+	private String title;
+
+    @NotEmpty
+    @Column(nullable=false)
+	private String genre;
+
+    @Range(min = 1900, max = 2015, message = "{Range.validation}")
+    @Column(length=4)
+	private String year;
+
+    @NotEmpty
+    @Pattern(regexp = "^[A-Za-z' \\,]*$", message = "{Pattern.actors}")
+    @Column(nullable=false)
+	private String actors;
+
+    @URL(protocol = "http", host = "www.imdb.com", message = "{Pattern.imdb}")
+    @Column
+	private String imdb;
+
+    @NotEmpty
+    @Pattern(regexp="^[A-Za-z0-9\\-]*$", message = "{Pattern.movie_index}")
+    @Column(nullable=false)
+    private String movie_index;
+
+
 	public Long getId() {
 		return id;
 	}
-	
-//	@Column
-//	public int getVotes() {
-//		return votes;
-//	}
-	@NotEmpty
-	@Pattern(regexp="^[A-Za-z0-9' _-]*$")
-	@Column(nullable=false)
+
 	public String getTitle() {
 		return title;
 	}
-	
-	@NotEmpty
-	@Column(nullable=false)
+
 	public String getGenre() {
 		return genre;
 	}
-	
-	@Range(min = 1900, max = 2015)
-	@Column(length=4)
+
 	public String getYear() {
 		return year;
 	}
-	
-	@NotEmpty
-	@Pattern(regexp="^[A-Za-z' \\,]*$")
-	@Column(nullable=false)
+
 	public String getActors() {
 		return actors;
 	}
-	@Column(nullable=false)
+
 	public String getMovie_index() {
 		return movie_index;
 	}
 
-
-	@URL(protocol="http", host="www.imdb.com")
-	@Column
 	public String getImdb() {
 		return imdb;
-	}
-
-	@Override
-	public int hashCode() {
-		if(id == null) return 0;
-		return new Long(id).hashCode();
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (obj == null) {
-			return false;
-		}
-		if (! (obj instanceof Movie)) {
-			return false;
-		}
-		return this.id == ((Movie)obj).getId();
 	}
 
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-//	public void setVotes(int votes) {
-//		this.votes = votes;
-//	}
 
 	public void setTitle(String title) {
 		this.title = title;
@@ -118,5 +101,22 @@ public class Movie implements Serializable {
 	public void setMovie_index(String movie_index) {
 		this.movie_index = movie_index;
 	}
+
+    @Override
+    public int hashCode() {
+        if(id == null) return 0;
+        return new Long(id).hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (! (obj instanceof Movie)) {
+            return false;
+        }
+        return this.id == ((Movie)obj).getId();
+    }
 
 }
