@@ -29,7 +29,14 @@
                 </div>
             </div>
         </div>
-
+		<c:forEach items="${movieExtraList}" var="movieExtra">
+                    <h4>
+                   	${movieExtra.storeName} 
+                    </h4>
+                    <h4>
+                   	${movieExtra.price} 
+                    </h4>
+                       </c:forEach>
     </div>
 </section>
 </body>

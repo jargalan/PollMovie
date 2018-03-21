@@ -39,8 +39,9 @@ public class MovieController {
     public String getMovie(@PathVariable Long id, Model model) {
         Movie movie = movieService.findOne(id);
         List<MovieExtra> movieExtraList = movieExtraService.readByIndex(movie.getMovie_index());
-        System.out.println(movieExtraList);
+        
         model.addAttribute("movie", movie);
+        model.addAttribute("movieExtraList", movieExtraList);
         model.addAttribute("edit", "editMovie");
         return "/movie/movie";
     }
