@@ -50,14 +50,9 @@ public class PollController {
         Poll poll = pollService.findOne(id);
         boolean hasVoted = false;
 
-        System.out.println("------ username -- " + user.getUsername());
-        System.out.println(poll.getUsers());
-
-        UserCredentials user1 = poll.getUsers().stream().filter(u -> u.getUsername().equals(u.getUsername())).findFirst().orElse(null); //{
-        if (user1 != null) {
+        if (poll.findUser(user) != null) {
             hasVoted = true;
         }
-        System.out.println("------ hasVoted -- " + hasVoted);
         model.addAttribute("poll", poll);
         model.addAttribute("hasVoted", hasVoted);
         return "poll/poll";

@@ -58,4 +58,10 @@ public class Poll {
     public void setMovies(Set<Movie> movies) {
         this.movies = movies;
     }
+
+    public UserCredentials findUser(UserCredentials userCredentials) {
+        return this.getUsers().stream()
+                .filter(u -> u.equals(userCredentials))
+                .findFirst().orElse(null);
+    }
 }
