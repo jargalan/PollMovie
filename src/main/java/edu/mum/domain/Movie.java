@@ -22,6 +22,8 @@ public class Movie {
 	private String imdb;
 //	private String addedBy;
 //	private Date publishedOn;
+	
+	private String movie_index;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -58,6 +60,11 @@ public class Movie {
 	public String getActors() {
 		return actors;
 	}
+	@Column(nullable=false)
+	public String getMovie_index() {
+		return movie_index;
+	}
+
 	
 	@URL(protocol="http", host="www.imdb.com")
 	@Column
@@ -119,6 +126,13 @@ public class Movie {
 	public void setImdb(String imdb) {
 		this.imdb = imdb;
 	}
+
+	
+	public void setMovie_index(String movie_index) {
+		this.movie_index = movie_index;
+	}
+
+	
 
 //	public void setAddedBy(String addedBy) {
 //		this.addedBy = addedBy;

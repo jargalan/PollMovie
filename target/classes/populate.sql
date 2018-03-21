@@ -9,6 +9,6 @@ INSERT INTO authority (username, authority) VALUES ('admin', 'ROLE_USER');
 INSERT INTO  `MEMBER` (firstname, lastname,age,title,membernumber, member_id) VALUES ('Curious','George',12,'Boy Monkey', 8754,'admin');
 INSERT INTO `MEMBER` (firstname, lastname,age,title,membernumber,member_id) VALUES ('Allen','Rench',123,'Torque Master', 8733,'guest');
 
-INSERT INTO movie (title, genre, imdb, actors, votes, `year`) VALUES ('Forest Gump','Drama','','Tom Hanks',0,'2011');
-INSERT INTO movie (title, genre, imdb, actors, votes, `year`) VALUES ('Catch Me If You Can','Drama','','Leonardo Dicaprio, Tom Hanks',0,'2000');
-INSERT INTO movie (title, genre, imdb, actors, votes, `year`) VALUES ('Godfather','Action','','Al Pachino',0,'2000');
+INSERT INTO movie (title, genre, imdb, actors, votes, `year`, movie_index) VALUES ('Forest Gump','Drama','','Tom Hanks',0,'2011','321');
+INSERT INTO movie (title, genre, imdb, actors, votes, `year`,movie_index) VALUES ('Catch Me If You Can','Drama','','Leonardo Dicaprio, Tom Hanks',0,'2000','456');
+INSERT INTO movie (title, genre, imdb, actors, votes, `year`, movie_index) VALUES ('Godfather','Action','','Al Pachino',0,'2000','123');
