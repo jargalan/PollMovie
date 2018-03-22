@@ -19,6 +19,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import edu.mum.validation.EmptyOrSize;
@@ -39,6 +40,10 @@ public class Member {
     @Column(length = 16)
     @EmptyOrSize(min = 5, max = 9, message = "{EmptyOrSize}")
     private String lastName;
+
+    @Column
+    @Email
+    private String email;
 
     @NullMinNumber(value = 6)
     private Integer age;
@@ -126,4 +131,11 @@ public class Member {
         return age;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

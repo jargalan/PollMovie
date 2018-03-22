@@ -46,6 +46,14 @@
 			</div>
 
 			<div class="form-group">
+				<label class="control-label col-lg-2" for="email">Email</label>
+				<div class="col-lg-10">
+					<form:input id="email" path="email" type="text" class="form:input-large"/>
+					<form:errors path="email" cssClass="text-danger"/>
+				</div>
+			</div>
+
+			<div class="form-group">
 				<label class="control-label col-lg-2" for="age">Age</label>
 				<div class="col-lg-10">
 					<form:input id="age" path="age" type="text" class="form:input-large"/>

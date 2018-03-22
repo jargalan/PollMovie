@@ -1,5 +1,6 @@
 package edu.mum.service.impl;
 
+import edu.mum.aspect.annotation.MailNotification;
 import edu.mum.dao.PollDao;
 import edu.mum.dao.PollMovieDao;
 import edu.mum.domain.Movie;
@@ -24,6 +25,7 @@ public class PollServiceImpl implements PollService {
     @Autowired
     private PollMovieDao pollMovieDao;
 
+    @MailNotification
     public void save(Poll poll) {
         for(Movie movie: poll.getMovies()) {
             poll.addPollMovie(new PollMovie(poll, movie));

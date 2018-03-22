@@ -5,6 +5,7 @@ import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -37,6 +38,7 @@ public class Poll implements Serializable {
     @OrderBy("votes DESC")
     private Set<PollMovie> pollMovies = new HashSet<PollMovie>();
 
+    @NotNull
     @Transient
     Set<Movie> movies = new HashSet<Movie>();
 

@@ -20,7 +20,7 @@
         <div class="col-md-12" style="padding-bottom: 15px">
             <div class="thumbnail">
                 <div class="caption">
-                    <h3>Poll - ${poll.name}</h3>
+                    <h3>Poll #${poll.id} - ${poll.name}</h3>
                     <p>User can vote for the movie only once</p>
                     <table class="table table-striped table-bordered table-condensed- text-center">
                         <thead>
