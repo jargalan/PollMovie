@@ -17,26 +17,28 @@
 </section>
 <section class="container">
     <div class="row">
-        <div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
+        <div class="col-md-6" style="padding-bottom: 15px">
             <div class="thumbnail">
                 <div class="caption">
-                    <h3>Title - ${movie.title}</h3>
-                    <h3>Year -  ${movie.year}</h3>
-                    <p>Genre -         ${movie.genre}</p>
-                    <%--<p>Votes -         ${movie.votes}</p>--%>
-                    <p>Actors -         ${movie.actors}</p>
-                    <p>IMDB -         ${movie.imdb}</p>
+                    <h3>${movie.title} (${movie.year})</h3>
+                    <p><strong>Genre: </strong> ${movie.genre}</p>
+                    <p><strong>Actors: </strong> ${movie.actors}</p>
+                    <p><strong>IMDB: </strong> ${movie.imdb}</p>
+                    <p><strong>Index: </strong> ${movie.movie_index}</p>
                 </div>
             </div>
         </div>
-		<c:forEach items="${movieExtraList}" var="movieExtra">
-                    <h4>
-                   	${movieExtra.storeName} 
-                    </h4>
-                    <h4>
-                   	${movieExtra.price} 
-                    </h4>
-                       </c:forEach>
+        <div class="col-md-6" style="padding-bottom: 15px">
+            <div class="thumbnail">
+                <div class="caption">
+                    <legend>Stores that are selling DVD/BlueRay of that movie</legend>
+                    <c:forEach items="${movieExtraList}" var="movieExtra">
+                    <h4>${movieExtra.storeName}</h4>
+                    <p><strong>Price: </strong>${movieExtra.price}</p>
+                    </c:forEach>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 </body>
