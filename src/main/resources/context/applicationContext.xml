@@ -48,7 +48,7 @@
     </bean>
 
     <!-- Scan for  transaction-based resources -->
-    <context:component-scan base-package="edu.mum.service,edu.mum.dao,edu.mum.rest,edu.mum.aspect,edu.mum.emailservice"/>
+    <context:component-scan base-package="edu.mum"/>
 
     <aop:aspectj-autoproxy />
 
