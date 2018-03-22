@@ -34,6 +34,10 @@ public class MovieServiceImpl implements MovieService {
         movieDao.delete(id);
     }
 
+    public Movie findByMovieIndex(String movie_index) {
+        return movieDao.findByMovieIndex(movie_index);
+    }
+
 //	public void voteMovie(Long id) {
 //		movieDao.voteMovie(id);
 //

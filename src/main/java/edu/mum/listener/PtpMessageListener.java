@@ -4,8 +4,12 @@ import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.ObjectMessage;
 
+import edu.mum.domain.Movie;
+import edu.mum.service.MovieService;
+import edu.mum.service.PollService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +19,13 @@ import edu.mum.domain.FMPoll;
 public class PtpMessageListener  {
     private static final Logger logger = LoggerFactory.getLogger(PtpMessageListener.class);
     private static final String ORDER_RESPONSE_QUEUE = "poll-queue";
-	
+
+    @Autowired
+	PollService pollService;
+
+    @Autowired
+    MovieService movieService;
+
 	@JmsListener(destination = ORDER_RESPONSE_QUEUE)
 	public void receiveMessage(final Message message) throws JMSException {
 		 ObjectMessage objectMessage = (ObjectMessage) message;
@@ -28,9 +38,19 @@ public class PtpMessageListener  {
 				e.printStackTrace();
 			}
 			System.out.println("-----:" + poll.getPhone_number());
-	 		logger.info("         Movie Title: "  + poll.getPhone_number());
-			logger.info("                 Movie Index: "  + poll.getMovie_index());
-			logger.info("                 IMDB: "  + poll.getPoll_id());
+            System.out.println("        Phone Number: "  + poll.getPhone_number());
+            System.out.println("        Movie Index: "  + poll.getMovie_index());
+            System.out.println("        Poll #: "  + poll.getPoll_id());
+
+			try {
+                Movie movie = movieService.findByMovieIndex(poll.getMovie_index());
+                pollService.voteMovie(
+                        new Long(poll.getPoll_id()),
+                        new Long(movie.getId()));
+            } catch (Exception e) {
+			    e.printStackTrace();
+            }
+
 	}
 	/*
 

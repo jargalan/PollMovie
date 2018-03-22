@@ -15,6 +15,8 @@ public interface MovieService {
 
 	public void delete(Long id);
 
+	public Movie findByMovieIndex(String movie_index);
+
 //	public void voteMovie(Long id);
 
 }

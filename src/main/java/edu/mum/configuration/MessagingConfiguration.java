@@ -14,7 +14,7 @@ import org.springframework.jms.core.JmsTemplate;
 
 @Configuration
 public class MessagingConfiguration {
-private static final String DEFAULT_BROKER_URL = "tcp://pc:61616";
+private static final String DEFAULT_BROKER_URL = "tcp://localhost:61616";
 	
 	private static final String ORDER_QUEUE = "poll-queue";
 

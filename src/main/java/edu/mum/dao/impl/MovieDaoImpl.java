@@ -12,6 +12,13 @@ public class MovieDaoImpl extends GenericDaoImpl<Movie> implements MovieDao {
 		super.setDaoType(Movie.class);
 	}
 
+	public Movie findByMovieIndex(String movie_index) {
+		return (Movie) entityManager.createQuery(
+				"SELECT m FROM Movie AS m WHERE m.movie_index =:movie_index")
+				.setParameter("movie_index", movie_index)
+				.getSingleResult();
+	}
+
 //    public void voteMovie(Long movieId) {
 //
 //        Movie movie = findOne(movieId);

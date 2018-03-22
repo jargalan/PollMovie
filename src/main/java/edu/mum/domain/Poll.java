@@ -22,6 +22,9 @@ public class Poll implements Serializable {
     @Column
     private String name;
 
+    @Column
+    private String description;
+
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable( name="Poll_User", joinColumns={@JoinColumn(name="Poll_ID")},
             inverseJoinColumns={ @JoinColumn(name="UserCredentials_ID")} )
@@ -96,4 +99,11 @@ public class Poll implements Serializable {
         this.pollMovies = pollMovies;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

@@ -42,9 +42,11 @@ public class Movie implements Serializable {
 
     @NotEmpty
     @Pattern(regexp="^[A-Za-z0-9\\-]*$", message = "{Pattern.movie_index}")
-    @Column(nullable=false)
+    @Column(nullable=false, unique = true)
     private String movie_index;
 
+	@Column
+	private String poster;
 
 	public Long getId() {
 		return id;
@@ -102,7 +104,15 @@ public class Movie implements Serializable {
 		this.movie_index = movie_index;
 	}
 
-    @Override
+	public String getPoster() {
+		return poster;
+	}
+
+	public void setPoster(String poster) {
+		this.poster = poster;
+	}
+
+	@Override
     public int hashCode() {
         if(id == null) return 0;
         return new Long(id).hashCode();

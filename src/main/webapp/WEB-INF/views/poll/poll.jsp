@@ -21,7 +21,8 @@
             <div class="thumbnail">
                 <div class="caption">
                     <h3>Poll #${poll.id} - ${poll.name}</h3>
-                    <p>User can vote for the movie only once</p>
+                    <small>User can vote for the movie only once</small><br/><br/>
+                    <p>${poll.description}</p>
                     <table class="table table-striped table-bordered table-condensed- text-center">
                         <thead>
                         <tr style="background:#428bca;color:white">
@@ -40,7 +41,9 @@
                             <tr>
                                 <td><strong><c:out value="${loopCounter.count}" /></strong></td>
                                 <td><font color="red"><c:out value="${pollMovie.votes}" /></font></td>
-                                <td><c:out value="${pollMovie.movie.title}" /></td>
+                                <td><c:out value="${pollMovie.movie.title}" />
+                                    <span class="badge">#<c:out value="${pollMovie.movie.movie_index}" /></span>
+                                </td>
                                 <td><c:out value="${pollMovie.movie.genre}" /></td>
                                 <td><c:out value="${pollMovie.movie.year}" /></td>
                                 <td><c:out value="${pollMovie.movie.actors}" /></td>

@@ -30,6 +30,14 @@
             </div>
 
             <div class="form-group">
+                <label class="control-label col-lg-2 col-lg-2" for="name">Description</label>
+                <div class="col-lg-10">
+                    <form:input id="description" path="description" type="text" class="form:input-large" style="width:50%"/>
+                    <form:errors path="description" cssClass="text-danger"/>
+                </div>
+            </div>
+
+            <div class="form-group">
                 <label class="control-label col-lg-2 col-lg-2" for="movies">Movies</label>
                 <div class="col-lg-10">
                     <form:select path="movies" multiple="true" items="${movieList}" itemLabel="title" itemValue="id"

@@ -23,7 +23,13 @@
                     <h3>${movie.title} (${movie.year})</h3>
                     <p><strong>Genre: </strong> ${movie.genre}</p>
                     <p><strong>Actors: </strong> ${movie.actors}</p>
-                    <p><strong>IMDB: </strong> ${movie.imdb}</p>
+                    <p><strong>IMDB: </strong>
+                        <c:if test="${pollMovie.movie.imdb != ''}">
+                        <a href="${pollMovie.movie.imdb}" target="blank">
+                            <i class="fa fa-external-link-square"> IMDb link</i>
+                        </a>
+                        </c:if>
+                    </p>
                     <p><strong>Index: </strong> ${movie.movie_index}</p>
                 </div>
             </div>
@@ -34,7 +40,7 @@
                     <legend>Stores that are selling DVD/BlueRay of that movie</legend>
                     <c:forEach items="${movieExtraList}" var="movieExtra">
                     <h4>${movieExtra.storeName}</h4>
-                    <p><strong>Price: </strong>${movieExtra.price}</p>
+                    <p><strong>Price: $</strong>${movieExtra.price}</p><br/>
                     </c:forEach>
                 </div>
             </div>
