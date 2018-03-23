@@ -27,7 +27,7 @@ public class Movie implements Serializable {
     @Column(nullable=false)
 	private String genre;
 
-    @Range(min = 1900, max = 2015, message = "{Range.validation}")
+    @Range(min = 1900, max = 3000, message = "{Range.validation}")
     @Column(length=4)
 	private String year;
 

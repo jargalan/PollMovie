@@ -19,16 +19,4 @@ public class MovieDaoImpl extends GenericDaoImpl<Movie> implements MovieDao {
 				.getSingleResult();
 	}
 
-//    public void voteMovie(Long movieId) {
-//
-//        Movie movie = findOne(movieId);
-//
-//        if (null != movie) {
-//
-//            synchronized (this) {
-//                movie.setVotes(movie.getVotes() + 1);
-//            }
-//
-//        }
-//    }
 }

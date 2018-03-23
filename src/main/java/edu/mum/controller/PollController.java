@@ -92,7 +92,6 @@ public class PollController {
 
         if (!poll.getUsers().contains(user)) {
             poll.addUser(user);
-//            movieService.voteMovie(movieId);
             pollService.voteMovie(id, movieId);
             pollService.update(poll);
         }

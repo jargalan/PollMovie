@@ -38,9 +38,5 @@ public class MovieServiceImpl implements MovieService {
         return movieDao.findByMovieIndex(movie_index);
     }
 
-//	public void voteMovie(Long id) {
-//		movieDao.voteMovie(id);
-//
-//	}
 
 }

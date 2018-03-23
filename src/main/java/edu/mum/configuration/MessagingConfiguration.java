@@ -22,7 +22,6 @@ private static final String DEFAULT_BROKER_URL = "tcp://localhost:61616";
 	public ActiveMQConnectionFactory connectionFactory(){
 		ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
 		connectionFactory.setBrokerURL(DEFAULT_BROKER_URL);
-		//connectionFactory.setTrustedPackages(Arrays.asList("edu.mum.domain"));
 		return connectionFactory;
 	}
 	

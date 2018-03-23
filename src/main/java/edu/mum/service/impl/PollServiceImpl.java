@@ -46,30 +46,6 @@ public class PollServiceImpl implements PollService {
     }
 
     public Poll update(Poll poll) {
-//        Set<PollMovie> pollMoviesToBeRemoved = new HashSet<>();
-//
-//        // If any movie list were omitted, remove that PollMovie object
-//        for(PollMovie pm: poll.getPollMovies()) {
-//            if(poll.getMovies().stream()
-//                    .filter(m -> m.equals(pm.getMovie()))
-//                    .findFirst().orElse(null) == null) {
-//
-//                pollMoviesToBeRemoved.add(pm);
-//            }
-//        }
-//        for(PollMovie pm: pollMoviesToBeRemoved) {
-//            poll.getPollMovies().remove(pm);
-//        }
-//
-//        // If any new movie added, create and add new PollMovie object
-//        for(Movie movie: poll.getMovies()) {
-//            if(poll.getPollMovies().stream()
-//                    .filter(pm -> pm.getMovie().equals(movie))
-//                    .findFirst().orElse(null) == null) {
-//
-//                poll.addPollMovie(new PollMovie(poll, movie));
-//            }
-//        }
         return pollDao.update(poll);
     }
 

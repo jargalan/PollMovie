@@ -52,20 +52,5 @@ public class PtpMessageListener  {
             }
 
 	}
-	/*
 
-    public void onMessage(Message message) {
-        ObjectMessage objectMessage = (ObjectMessage) message;
-        Movie movieInfo = null;
-		try {
-			movieInfo = (Movie) objectMessage.getObject();
-		} catch (JMSException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
- 		logger.info("         Movie Titl: "  + movieInfo.getTitle());
-		logger.info("                 Movie Index: "  + movieInfo.getMovie_index());
-		logger.info("                 IMDB: "  + movieInfo.getImdb());
-
-		}*/
 }
